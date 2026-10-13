@@ -21,4 +21,16 @@
         if (errors.length == 0)
             info.textContent = "Numer telefonu jest poprawny";
     });
+
+    let ex3_one = document.querySelector("#ex3_one");
+    let ex3_two = document.querySelector("#ex3_two");
+    let ex3_el = document.querySelector("#ex3_element");
+
+    ex3_two.addEventListener("dragover", (e) => {
+        e.preventDefault();
+    });
+    ex3_two.addEventListener("drop", (e) => {
+        e.preventDefault();
+        ex3_two.appendChild(ex3_el);
+    });
 })();
