@@ -26,11 +26,24 @@
     let ex3_two = document.querySelector("#ex3_two");
     let ex3_el = document.querySelector("#ex3_element");
 
+    ex3_el.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", e.target.id);
+    });
     ex3_two.addEventListener("dragover", (e) => {
         e.preventDefault();
     });
     ex3_two.addEventListener("drop", (e) => {
         e.preventDefault();
-        ex3_two.appendChild(ex3_el);
+        const id = e.dataTransfer.getData("text/plain");
+        ex3_two.appendChild(document.getElementById(id));
+    });
+
+    ex3_one.addEventListener("dragover", (e) => {
+        e.preventDefault();
+    });
+    ex3_one.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData("text/plain");
+        ex3_one.appendChild(document.getElementById(id));
     });
 })();
